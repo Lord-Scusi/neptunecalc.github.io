@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViperHawk Aerie</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&family=Russo+One&display=swap" rel="stylesheet">
+    <script src="Combat_Calculator.js" defer></script>
+    <script src="CleanerNepCalc.js" defer></script>
+    <img src="ViperHawkBannerUpScaled.svg" id="mainImage"/>
+</head>
+<body>
+    <div id="backgroundImage"></div>
+    <h1>Neptunes Pride 2 Fluff Edition</h1>
+    <p class="introText">Tools and rules for those willing to go the extra mile in a game of make believe.</p>
+    <h2>Player and Enemy Stats</h2>
+    <!-- This is where the user inputs the player and enemy stats, this is where the script must fetch the stat values for the calculations,
+         the battle calculator will have its own input fields-->
+    <form>
+        <ul>
+            <div>
+                <label for="playerBankingLevel">Player Banking Level: </label>
+                <input type="number" class= "inputDialog" name="" id="playerBankingLevel" step="1" value=1 min=1 required/>
+                <label for="enemyBankingLevel">Enemy Banking Level: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyBankingLevel" step="1" value=1 min=1 required/>
+            </div>
+            <div>
+                <label for="playerExperimentationLevel">Player Experimentation Level: </label>
+                <input type="number" class= "inputDialog" name="" id="playerExperimentationLevel" step="1" value=1 min=1 required/>
+                <label for="enemyExperimentationLevel">Enemy Experimentation Level: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyExperimentationLevel" step="1" value=1 min=1 required/>
+            </div>
+            <div>
+                <label for="playerTerraformingLevel">Player Terraforming Level: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTerraformingLevel" step="1" value=1 min=1 required/>
+                <label for="enemyTerraformingLevel">Enemy Terraforming Level: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTerraformingLevel" step="1" value=1 min=1 required/>
+            </div>
+            <div>
+                <label for="playerManufacturingLevel">Player Manufacturing Level: </label>
+                <input type="number" class= "inputDialog" name="" id="playerManufacturingLevel" step="1" value=1 min=1 required/>
+                <label for="enemyManufacturingLevel">Enemy Manufacturing Level: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyManufacturingLevel" step="1" value=1 min=1 required/>
+            </div>
+            <div>
+                <label for="playerWeaponsLevel">Player Weapons Level: </label>
+                <input type="number" class= "inputDialog" name="" id="playerWeaponsLevel" step="1" value=1 min=1 required/>
+                <label for="enemyWeaponsLevel">Enemy Weapons Level: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyWeaponsLevel" step="1" value=1 min=1 required/>
+            </div>
+            <div>
+                <label for="playerHyperspaceLevel">Player Hyperspace Level: </label>
+                <input type="number" class= "inputDialog" name="" id="playerHyperspaceLevel" step="1" value=1 min=1 required/>
+                <label for="enemyHyperspaceLevel">Enemy Hyperspace Level: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyHyperspaceLevel" step="1" value=1 min=1 required/>
+            </div>
+            <div>
+                <label for="playerScanningLevel">Player Scanning Level: </label>
+                <input type="number" class= "inputDialog" name="" id="playerScanningLevel" step="1" value=1 min=1 required/>
+                <label for="enemyScanningLevel">Enemy Scanning Level: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyScanningLevel" step="1" value=1 min=1 required/>
+            </div>
+            <div>
+                <label for="playerTotalMoney">Player Credits: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTotalMoney" step="1" value=500 min=0 required/>
+                <label for="enemyTotalMoney">Enemy Credits: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTotalMoney" step="1" value=500 min=0 required/>
+            </div>
+            <div>
+                <label for="playerTotalShips">Player Ships: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTotalShips" step="1" value=100 min=0 required/>
+                <label for="enemyTotalShips">Enemy Ships: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTotalShips" step="1" value=100 min=0 required/>
+            </div>
+            <div>
+                <label for="playerTotalCarriers">Player Carriers: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTotalCarriers" step="1" value=5 min=0 required/>
+                <label for="enemyTotalCarriers">Enemy Carriers: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTotalCarriers" step="1" value=5 min=0 required/>
+            </div>
+            <div>
+                <label for="playerTotalPlanets">Player Planets: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTotalPlanets" step="1" value=7  min=1 required/>
+                <label for="enemyTotalPlanets">Enemy Planets: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTotalPlanets"step="1" value=7 min=1 required/>
+            </div>
+            <div>
+                <label for="playerTotalScience">Player Total Science: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTotalScience" step="1" value=1 min=0 required/>
+                <label for="enemyTotalScience">Enemy Total Science: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTotalScience"step="1" value=1 min=0 required/>
+            </div>
+            <div>
+                <label for="playerTotalEconomy">Player Economy: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTotalEconomy"step="1" value=10 min=0 required/>
+                <label for="enemyTotalEconomy">Enemy Economy: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTotalEconomy"step="1" value=10 min=0 required/>
+            </div>
+            <div>
+                <label for="playerTotalIndustry">Player Industry: </label>
+                <input type="number" class= "inputDialog" name="" id="playerTotalIndustry"step="1" value=5 min=0 required/>
+                <label for="enemyTotalIndustry">Enemy Industry: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyTotalIndustry"step="1" value=5 min=0 required/>
+            </div>
+            <div>
+                <label for="playerWarpgates">Player Warpgates: </label>
+                <input type="number" class= "inputDialog" name="" id="playerWarpgates" step="1" value=1 min=0 required/>
+                <label for="enemyWarpgates">Enemy Warpgates: </label>
+                <input type="number" class= "inputDialog2" name="" id="enemyWarpgates" step="1" value=1 min=0 required/>
+            </div>
+            <div>
+                <button id="calculateEverything" hidden>Analyze Everything</button>
+                <button id="calculateEfficiency">Tech Upgrades</button>
+                <button id="calculateStrength">Show Strength</button>
+            </div>
+            <div>
+                <p id="infoLog"></p>
+            </div>
+        </ul>
+    </form>
+    <form>
+        <h2>Trade Value Calculator</h2>
+        <ul>
+            <div>
+                <label> Traded Tech Level:
+                    <input type="number" class="inputDialogTrade" id="tradeTechLevel" step="1" placeholder="Level of Tech" value=2 min=2 required/>
+                </label>
+                <label> Receiver Tech Level:
+                    <input type="number" class="inputDialogTrade" id="receiverTechLevel" step="1" placeholder="Level of Tech" value=1 min=1 required/>
+                </label>
+            </div>
+            <div>
+                <button id="calculateTradeCost">Tech Trade Cost</button>
+            </div>
+            <div>
+                <p id="techTradeCostLog"></p>
+            </div>
+        </ul>
+    </form>
+    <form>
+        <div>
+            <h2>Currency Exchange Rate</h2>
+        </div>
+        <ul>
+            <div>
+                <label> Credit Amount:
+                    <input type="number" class="inputDialogCredit" id="creditValue" placeholder="Number of Credits" value=1 min=1 required/>
+                </label>
+                <p id= "currencyLog"></p>
+                <button id="calculateCurrency">Exchange Rate</button>
+            </div>
+        </ul>
+    </form>
+    <h2>Combat Calculator</h2>
+    <form>
+        <ul>
+            <div>
+                <label>Attacker Ships:
+                    <input type="number" class="combatInput" name="" id="attackerShips" step=1 placeholder="Attacker Ships" value=1 min=0 required/>
+                </label>
+                <label>Defender Ships:
+                    <input type="number" class="combatInput" name="" id="defenderShips" step=1 placeholder="Defender Ships" value=1 min=0 required/>
+                </label>
+            </div>
+            <div>
+                <label>Attacker Weapons Tech:
+                    <input type="number" class="combatInput" name="" id="attackerWeapon" step=1 placeholder="Attacker Weapons Tech." value=1 min=0 required/>
+                </label>
+                <label>Defender Weapons Tech:
+                    <input type="number" class="combatInput" name="" id="defenderWeapon" step=1 placeholder="Defender Weapons Tech." value=1 min=0 required/>
+                </label>
+            </div>
+            <div>
+                <button id="calculateCombat">Show Results</button>
+            </div>
+        </ul>
+    </form>
+    <div>
+        <p id="combatLog">
+            
+        </p>
+    </div>
+    
+    
+</body>
+</html>
